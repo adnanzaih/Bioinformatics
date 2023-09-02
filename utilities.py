@@ -18,6 +18,14 @@ def colored(seq):
 
     return tmpStr + '\033[0;0m'
 
+def readTextFile(filePath):
+    with open(filePath, 'r') as f:
+        return "".join([l.strip() for l in f.readlines()])
+
+def writeTextFile(filePath, seq, mode='w'):
+    with open(filePath, mode) as f:
+        f.write(seq + '\n')
+
 def read_FASTA(filepath):
     with open(filepath, 'r') as f:
         FASTAFile = [l.strip() for l in f.readlines()]
